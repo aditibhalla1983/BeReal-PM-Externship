@@ -1,54 +1,31 @@
-# BeReal Feature Growth — Product Management Externship
+# BeReal Product Innovation Case Study: Feature Engagement Drive
 
-**Status:** 🏗️ In-Progress
+## 📌 Project Overview
+This project presents an end-to-end product management case study conducted during an intensive 8-week program. The core objective was to analyze **BeReal's** unique product experience, run competitive benchmarks, and design a scalable, low-effort/high-impact feature targeted at increasing Monthly Active Users (MAUs).
 
-This repository documents a product management externship focused on identifying and specifying new features to drive BeReal's Monthly Active User (MAU) growth and retention — while preserving the app's core values of authenticity, spontaneity, simplicity, and connection.
-
----
-
-## 🎯 Project Milestones:
-
-* **Project 1: RealWorld Map (The Privacy Foundation)** — Designing a Snap Map alternative built around static, timestamped location sharing instead of continuous live tracking.
-  - [Product Requirement Document](Product%20Requirement%20Document%20(PRD)/)
-  - [Prototype — Privacy-First Map](Prototype/realworld-privacy-first-prototype.html)
-  - [Case Study — Product Teardown](PRD%20CASE%20STUDY/realworld-product-teardown.md)
-
-* **Project 2: User Journey & Competitive Research** — Mapping the current BeReal experience end-to-end and benchmarking against Snapchat, Instagram, Locket, Poparazzi, Dispo, Gas, and Rawly.
-  - [Prototype — BeReal User Journey Map](Prototype/bereal-user-journey-map.html)
-  - [Case Study — Competitive Analysis](PRD%20CASE%20STUDY/bereal-competitive-analysis.md)
-
-* **Project 3: Feature Brainstorming & Scoring** — Generating and stress-testing 16+ feature concepts across multiple ideation rounds, then scoring the backlog with RICE.
-  - [Case Study — Feature Remix](PRD%20CASE%20STUDY/bereal-feature-remix.md)
-  - [Case Study — Drop-off Fixes](PRD%20CASE%20STUDY/bereal-dropoff-fixes.md)
-  - [Case Study — Collaborative Posts](PRD%20CASE%20STUDY/bereal-collaborative-posts.md)
-  - Prototypes: [Daily Question](Prototype/daily-question-flow.html) · [Friend Check-In](Prototype/friend-checkin-flow.html) · [Friend Throwback](Prototype/friend-throwback-flow.html) · [Real-Life Prompt](Prototype/real-life-prompt-flow.html) · [Today's Circle](Prototype/todays-circle-flow.html) · [Friend's Duet](Prototype/friends-duet-flow.html)
-
-* **Project 4: Golden Memory (MVP System Design)** — Designing a "post to unlock a memory" system using event-first, rules-based selection — no heavy AI required.
-  - [Prototype — Golden Memory MVP](Prototype/golden-memory-mvp-prototype.html)
-  - [Prototype — Golden Memory Flow](Prototype/golden-memory-flow.html)
-
-* **Project 5: Distinct Notification Treatment (Final Feature — Highest RICE Score)** — A retention-focused fix ensuring the daily BeReal notification is noticed instead of blending into other app alerts.
-  - [Product Requirement Document (PRD-Lite)](Product%20Requirement%20Document%20(PRD)/distinct-notification-treatment-PRD-lite.md)
-  - [Flow Map](Product%20Requirement%20Document%20(PRD)/distinct-notification-treatment-flow-map.md)
-  - [Prototype — Clickable Mockup](Prototype/distinct-notification-canva-mockup.html)
-  - [Prototype — Full Walkthrough](Prototype/distinct-notification-flow.html)
-  - [Canva Build Spec](Product%20Requirement%20Document%20(PRD)/canva-build-spec-distinct-notification.md)
+* **Role:** Product Manager Intern
+* **Timeline:** 8 Weeks (September 2026 - Present)
+* **Program Manager:** Christie Andersen
 
 ---
 
-## 📖 Full Project Journey
+## 🚀 Program Milestones & My Core Deliverables
 
-For a phase-by-phase narrative connecting every decision across all five projects, see:
-👉 [**PRD CASE STUDY / PROJECT-JOURNEY.md**](PRD%20CASE%20STUDY/PROJECT-JOURNEY.md)
+### 1. End-to-End User Journey Mapping
+Mapped out the entire lifecycle of a BeReal user—from the spontaneous daily push notification to the final feed interaction. This helped identify friction points where users drop off if they fail to follow the daily routine.
+* 📄 **Artifact:** [Link to Miro/Figma Journey Map](./your-uploaded-file-name.pdf)
+
+### 2. Competitive Benchmarking
+Conducted a deep-dive competitive analysis against alternative social apps to understand daily routine drivers, streak mechanics, and summarized feed highlights.
+* 📊 **Artifact:** [View Competitive Analysis Matrix](./your-uploaded-file-name.md)
+
+### 3. Feature Design & Strategy (PRD-Lite)
+Designed a feature focused on maintaining core BeReal values with minimal development complexity. Formulated user stories using strict **INVEST** criteria.
+* 📑 **Artifact:** [Read PRD-Lite Document](./your-uploaded-file-name.pdf)
 
 ---
 
-## 📁 Repository Structure
-
-```
-├── PRD CASE STUDY/                        # Research, competitive analysis, and the full project narrative
-├── Product Requirement Document (PRD)/    # PRD-lite, flow maps, and build specs for the final feature
-├── Prototype/                             # All interactive HTML prototypes + visual assets
-├── LICENSE
-└── README.md
-```
+## 📈 Key Skills Demonstrated
+* **Product Strategy:** Competitor auditing and market opportunity identification.
+* **Data-Driven UX Design:** User journey optimization and core retention loop construction.
+* **Agile Requirements:** Writing clean, testable user stories and building prioritizing backlogs.
