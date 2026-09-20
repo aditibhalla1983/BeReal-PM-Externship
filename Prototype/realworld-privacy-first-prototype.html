@@ -1,0 +1,161 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RealWorld — Privacy-First Map Prototype</title><style>
+:root{--ink:#14302d;--mute:#64807a;--line:#dce7e2;--mint:#ddf4e9;--green:#207557;--coral:#f17863;--blue:#dbeafd;--paper:#fbfcf9;--amber:#c8871f;--red:#c14b3c;--gray:#8b9a94}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:18px;background:linear-gradient(135deg,#dfefe8,#dce8f8);font-family:Arial,Helvetica,sans-serif;color:var(--ink)}button{font:inherit;cursor:pointer}
+.phone{width:min(414px,100%);height:min(870px,calc(100vh - 30px));min-height:700px;background:var(--paper);overflow:hidden;border:9px solid #19312f;border-radius:38px;position:relative;box-shadow:0 28px 70px #57736966}
+.notch{position:absolute;z-index:20;top:0;left:50%;transform:translateX(-50%);width:140px;height:24px;border-radius:0 0 16px 16px;background:#19312f}
+.map{position:absolute;inset:0;background:#edf4ee;background-image:linear-gradient(30deg,transparent 47%,#d5dfda 48%,#d5dfda 49%,transparent 50%),linear-gradient(105deg,transparent 42%,#d4dfda 43%,#d4dfda 44%,transparent 45%),radial-gradient(ellipse at 9% 53%,#c4e6d5 0 13%,transparent 13.4%),radial-gradient(ellipse at 87% 27%,#cce9dd 0 11%,transparent 11.4%)}
+
+/* ---- Persistent privacy header ---- */
+.top{position:absolute;top:34px;left:12px;right:12px;z-index:6}
+.statusbar{background:#fffffff5;border-radius:18px;padding:11px 12px;box-shadow:0 5px 16px #45635a24}
+.statusbar-row{display:flex;justify-content:space-between;align-items:center}
+.statusbar-row b{font-size:16px}
+.shield-btn{border:0;border-radius:13px;display:flex;align-items:center;gap:5px;padding:7px 10px;font-size:11px;font-weight:bold;color:#fff}
+.shield-btn.protected{background:var(--green)}
+.shield-btn.adjusted{background:var(--amber)}
+.shield-btn.risk{background:var(--red)}
+.shield-btn.off{background:var(--gray)}
+.status-line{margin-top:7px;font-size:12px;font-weight:bold;color:#1d443c}
+.status-sub{margin-top:2px;font-size:11px;color:var(--mute)}
+.status-tap{margin-top:1px;font-size:10px;color:#3f8a6f;font-weight:bold}
+
+.chips{position:absolute;z-index:5;top:130px;left:12px;right:8px;display:flex;gap:7px;overflow:auto;padding:3px 0 7px}
+.chip{white-space:nowrap;background:#fff;border:1px solid var(--line);border-radius:18px;padding:8px 11px;font-size:12px;color:#39534d}
+.chip.active{background:#e1f5e9;border-color:#80c9a5;color:#126347;font-weight:bold}
+
+.pin,.cluster{position:absolute;z-index:3;border:3px solid white;color:#fff;box-shadow:0 5px 12px #284d4555;cursor:pointer}
+.pin{width:52px;height:52px;border-radius:50%;font-weight:bold}
+.cluster{border-radius:22px;background:#296d5c;padding:10px 12px;font-size:12px;font-weight:bold}
+.pin span,.cluster span{position:absolute;top:48px;left:50%;transform:translateX(-50%);white-space:nowrap;background:#fff;color:var(--ink);font-size:10px;border-radius:8px;padding:4px 6px;box-shadow:0 3px 8px #294d4520}
+.coral{background:var(--coral)}.teal{background:#477d84}.plum{background:#8c5b76}
+.pin.on{outline:4px solid #f7ad9f88}
+
+/* ---- Scope summary bar above the sheet ---- */
+.scopebar{position:absolute;z-index:7;left:0;right:0;bottom:314px;display:flex;justify-content:center}
+.scopebar-inner{background:#173a34ee;color:#fff;border-radius:14px;padding:9px 13px;display:flex;align-items:center;gap:10px;font-size:11px;box-shadow:0 6px 16px #17342d40}
+.scopebar-inner b{font-weight:normal;opacity:.75}
+.scopebar-change{border:0;background:#2c584d;color:#fff;border-radius:9px;padding:5px 9px;font-size:11px;font-weight:bold}
+
+.sheet{position:absolute;z-index:8;left:0;right:0;bottom:68px;background:#fffffff7;border-radius:26px 26px 0 0;padding:10px 15px 14px;min-height:230px;box-shadow:0 -8px 25px #304d4320}
+.handle{width:43px;height:4px;background:#cbd9d2;border-radius:8px;margin:0 auto 10px}
+.heading{display:flex;justify-content:space-between;align-items:center}
+.heading h2{font-size:17px;margin:0}
+.filter{border:0;background:#eef6f1;color:#235a4d;border-radius:10px;padding:8px 10px;font-size:12px;font-weight:bold}
+.why{font-size:11px;color:var(--mute);background:#f5f8f6;border-radius:10px;padding:7px 9px;margin:9px 0}
+.card{border:1px solid #e0eae5;border-radius:16px;padding:10px;display:flex;gap:10px;background:#fff;cursor:pointer}
+.thumb{width:70px;height:70px;flex:0 0 70px;border-radius:12px;background:linear-gradient(145deg,#ddb06d 0 42%,#79675b 43% 60%,#9ac9c5 61%);position:relative}
+.thumb:after{content:'☕';position:absolute;right:5px;bottom:5px;font-size:20px}
+.copy b{font-size:13px}.copy p{font-size:11px;color:var(--mute);margin:5px 0}
+.tag{font-size:10px;background:#fff0eb;color:#a34836;border-radius:8px;padding:4px 6px;font-weight:bold}
+
+.tabs{position:absolute;z-index:10;bottom:0;left:0;right:0;height:68px;background:#fff;border-top:1px solid var(--line);display:flex}
+.tab{border:0;background:white;flex:1;color:#6e817c;font-size:11px;font-weight:bold}
+.tab.active{color:#146349;background:#e4f4e9}
+.tab.post{position:relative}
+.tab.post .dot{position:absolute;top:6px;left:50%;transform:translateX(9px);width:8px;height:8px;border-radius:50%;background:var(--coral)}
+
+.toast{position:absolute;z-index:30;top:14px;left:50%;transform:translateX(-50%);color:white;background:#173a34;border-radius:12px;padding:10px 12px;font-size:12px;opacity:0;transition:.2s;pointer-events:none;white-space:nowrap;box-shadow:0 8px 18px #17342d55}
+.toast.show{opacity:1;top:154px}
+
+.drawer,.modal{position:absolute;display:none;z-index:25;inset:0;background:#122d2788;align-items:flex-end}
+.drawer.show,.modal.show{display:flex}
+.panel{width:100%;background:white;border-radius:27px 27px 0 0;padding:17px 18px 22px;max-height:82%;overflow:auto}
+.panel h3{margin:3px 0 2px}
+.panel p{font-size:12px;line-height:1.4;color:var(--mute)}
+.close{float:right;border:0;background:#edf3ef;border-radius:9px;padding:7px 9px}
+.section{font-size:11px;color:var(--mute);font-weight:bold;margin:16px 0 7px}
+.options{display:flex;gap:7px;flex-wrap:wrap}
+.option{border:1px solid var(--line);background:white;border-radius:15px;padding:8px 10px;font-size:12px}
+.option.on{border-color:#64b38d;background:#ddf4e8;color:#135d43;font-weight:bold}
+.apply{width:100%;margin-top:18px;border:0;border-radius:13px;background:#207557;color:white;font-weight:bold;padding:13px}
+.row{border-top:1px solid #edf1ef;padding:13px 0;display:flex;align-items:center;justify-content:space-between;font-size:13px}
+.row-copy small{display:block;color:var(--mute);font-size:11px;margin-top:2px;font-weight:normal}
+.switch{border:0;border-radius:20px;background:#bfcac5;color:#fff;padding:7px 11px;min-width:47px}
+.switch.on{background:#248563}
+.explain{border:1px solid #dceae3;background:#f5faf7;border-radius:12px;padding:11px;font-size:12px;color:#36524b;margin:12px 0}
+.hidden{display:none!important}
+
+/* ---- Map safety summary card at top of sheet ---- */
+.safety-summary{border:1px solid #dceae3;background:#f2f9f5;border-radius:14px;padding:12px;margin-bottom:4px}
+.safety-summary b{font-size:13px;display:block;margin-bottom:6px}
+.safety-line{display:flex;align-items:center;gap:7px;font-size:12px;color:#2c5148;margin:5px 0}
+.dropdown{width:100%;text-align:left;border:1px solid var(--line);background:#fff;border-radius:12px;padding:11px 12px;font-size:13px;margin-top:9px;display:flex;justify-content:space-between;color:var(--ink)}
+.pause-btn{width:100%;margin-top:16px;border:2px solid var(--red);background:#fdf1ef;color:var(--red);font-weight:bold;border-radius:13px;padding:13px}
+
+/* ---- Pre-post composer ---- */
+.composer-photo{width:100%;aspect-ratio:1/1;border-radius:18px;background:linear-gradient(150deg,#ddb06d 0 42%,#79675b 43% 60%,#9ac9c5 61%);position:relative;margin-bottom:14px}
+.composer-photo:after{content:'☕';position:absolute;right:14px;bottom:12px;font-size:30px}
+.loc-control{border:1px solid var(--line);border-radius:16px;padding:12px 13px;margin-top:2px}
+.loc-control-top{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:bold}
+.loc-pills{display:flex;gap:7px;margin-top:9px}
+.pill{flex:1;text-align:center;border:1px solid var(--line);background:#fff;border-radius:11px;padding:9px 6px;font-size:11.5px}
+.pill.on{border-color:#64b38d;background:#ddf4e8;color:#135d43;font-weight:bold}
+.geofence-alert{border:1px solid #f4d9c9;background:#fff6ef;border-radius:14px;padding:12px;margin-top:12px;display:none}
+.geofence-alert.show{display:block}
+.geofence-alert b{font-size:13px;color:#a3521f}
+.geofence-alert p{font-size:11.5px;color:#8a6f5b;margin:5px 0 10px}
+.geo-actions{display:flex;gap:8px}
+.geo-actions button{flex:1;border:0;border-radius:11px;padding:11px 6px;font-size:12px;font-weight:bold}
+.geo-share{background:#207557;color:#fff}
+.geo-keepoff{background:#eef1ef;color:#39534d}
+.share-btn{width:100%;margin-top:16px;border:0;border-radius:13px;background:#207557;color:#fff;font-weight:bold;padding:14px}
+</style></head><body><div class="phone"><div class="notch"></div><div class="map"></div>
+
+<header class="top">
+  <div class="statusbar">
+    <div class="statusbar-row">
+      <b>RealWorld</b>
+      <button class="shield-btn protected" id="shieldBtn" onclick="openSafety()"><span id="shieldIcon">🛡</span><span id="shieldLabel">Protected</span></button>
+    </div>
+    <div class="status-line" id="statusLine">🔒 Friends only · Approximate area</div>
+    <div class="status-sub">Home, school & work protected</div>
+    <button class="status-tap" onclick="openSafety()">Tap to view your map safety →</button>
+  </div>
+</header>
+
+<div class="chips"><button class="chip active" onclick="chooseChip(this,'Friends nearby')">Friends nearby</button><button class="chip" onclick="chooseChip(this,'Study')">Study</button><button class="chip" onclick="chooseChip(this,'Coffee')">Coffee</button><button class="chip" onclick="chooseChip(this,'Explore')">Explore ▾</button></div>
+
+<button class="pin coral on" style="top:225px;left:68px" onclick="friend('Maya','8 min ago','Near Capitol Square','Coffee Shifting',this)">M<span>8m</span></button>
+<button class="pin teal" style="top:335px;right:63px" onclick="friend('Jordan','42 min ago','Near Eastside','Desk Grinding',this)">J<span>42m</span></button>
+<button class="pin plum" style="top:196px;right:68px" onclick="friend('Priya','1 hr ago','Near Campus','Post-Workout',this)">P<span>1h</span></button>
+<button class="cluster" style="top:290px;left:168px" onclick="say('3 close friends posted in this coarse area')">3 · Study<span>Campus area</span></button>
+
+<div class="toast" id="toast"></div>
+
+<div class="scopebar"><div class="scopebar-inner"><span><b>Showing:</b> Friends · Today · Coarse</span><button class="scopebar-change" onclick="openFilters()">Change</button></div></div>
+
+<section class="sheet"><div class="handle"></div><div class="heading"><h2 id="heading">Today's Moments</h2><button class="filter" onclick="openFilters()">Filter ⚙</button></div><div class="why" id="why">Why this? Close friends posted today, and you selected "Friends nearby."</div><article class="card" onclick="say('Moment details opened')"><div class="thumb"></div><div class="copy"><b id="name">Maya · 8 min ago</b><p id="place">Near Capitol Square · coarse location</p><span class="tag" id="tag">Coffee Shifting</span><p>😂 &nbsp; 💬 &nbsp; ✨</p></div></article></section>
+
+<nav class="tabs"><button class="tab active" onclick="tab('today',this)">●<br>Today</button><button class="tab post" onclick="openComposer()">＋<br>Post<span class="dot"></span></button><button class="tab" onclick="tab('foot',this)">⌁<br>Footprints</button><button class="tab" onclick="tab('public',this)">◉<br>Public</button></nav>
+
+<!-- Filters drawer -->
+<div class="drawer" id="filters"><div class="panel"><button class="close" onclick="closeFilters()">Close</button><h3>Filter moments</h3><p>Choose what you want to see. Filters do not change who can see your posts.</p><div class="section">Audience</div><div class="options" data-group="aud"><button class="option on">Friends</button><button class="option">Close friends</button><button class="option">Public</button></div><div class="section">Time</div><div class="options" data-group="time"><button class="option on">Today</button><button class="option">24 hours</button><button class="option">This week</button></div><div class="section">Vibe</div><div class="options" data-group="vibe"><button class="option">Study</button><button class="option">Coffee</button><button class="option">Outdoors</button><button class="option">Music</button></div><div class="section">Location precision</div><div class="options" data-group="safe"><button class="option on">Coarse locations only</button><button class="option on">Hide home/work</button></div><button class="apply" onclick="applyFilters()">Apply filters</button></div></div>
+
+<!-- Map safety sheet (formerly buried "Privacy" modal) -->
+<div class="modal" id="privacy"><div class="panel"><button class="close" onclick="closePrivacy()">Close</button><h3>Map safety</h3><div class="safety-summary"><b>Your current sharing</b><div class="safety-line">🔒 Friends only</div><div class="safety-line">📍 Approximate location</div><div class="safety-line">🛡 Sensitive places protected</div></div><button class="dropdown" onclick="say('Audience: Friends only, Close friends, or Public')">Audience: Friends only <span>▾</span></button><button class="dropdown" onclick="say('Location: Approximate area or Precise (with warning)')">Location: Approximate area <span>▾</span></button><div class="row"><div class="row-copy">Protect sensitive places<small>Home, school, work & saved places are blurred</small></div><button class="switch on" onclick="toggle(this)">On</button></div><div class="row"><div class="row-copy">Personalized suggestions<small>Uses your filters and close-friend activity</small></div><button class="switch on" onclick="toggle(this)">On</button></div><div class="row"><div class="row-copy">Public discovery<small>Lets opted-in public posts include you</small></div><button class="switch" onclick="toggle(this)">Off</button></div><button class="pause-btn" onclick="pauseSharing()">⏸ Pause all map sharing</button><p style="text-align:center;margin-top:8px">Instantly stops new posts from appearing on RealWorld. You can still post to BeReal normally.</p></div></div>
+
+<!-- Pre-post composer -->
+<div class="modal" id="composer"><div class="panel"><button class="close" onclick="closeComposer()">Close</button><h3>Share your moment</h3><div class="composer-photo"></div><div class="loc-control"><div class="loc-control-top"><span>📍 Location on RealWorld</span></div><div class="loc-pills"><button class="pill on" id="pillAudience" onclick="say('Friends only is the safest default')">🔒 Friends only</button><button class="pill on" id="pillPrecision" onclick="togglePrecision()">Approximate area ▾</button></div><div class="explain" style="margin:10px 0 0">Home / school / work protection: <b>On</b></div></div><div class="geofence-alert" id="geofenceAlert"><b>🔒 Sensitive place protected</b><p>You're inside a protected zone (Home). Your post will not include an exact map location.</p><div class="geo-actions"><button class="geo-share" onclick="say('Shared — location omitted, protection kept on')">Share to friends</button><button class="geo-keepoff" onclick="say('Posted with location off')">Keep location off</button></div></div><button class="share-btn" id="shareBtn" onclick="say('Moment shared — Friends only, approximate area')">Share to RealWorld</button></div></div>
+
+<script>
+const q=s=>document.querySelector(s);
+function say(x){let t=q('#toast');t.textContent=x;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2200)}
+function friend(n,t,p,g,e){document.querySelectorAll('.pin').forEach(x=>x.classList.remove('on'));e.classList.add('on');q('#name').textContent=n+' · '+t;q('#place').textContent=p+' · coarse location';q('#tag').textContent=g;q('#why').textContent='Why this? '+n+' is a close friend and posted today.'}
+function chooseChip(e,x){document.querySelectorAll('.chip').forEach(a=>a.classList.remove('active'));e.classList.add('active');q('#why').textContent='Why this? You selected "'+x+'."';say('Showing '+x.toLowerCase()+' moments')}
+function tab(x,e){document.querySelectorAll('.tab').forEach(a=>a.classList.remove('active'));if(e)e.classList.add('active');if(x==='today'){q('#heading').textContent="Today's Moments";q('#why').textContent='Why this? Close friends posted today.'}if(x==='foot'){q('#heading').textContent='Your Footprints';q('#name').textContent='Explore your Memories by place';q('#place').textContent='Private to you · no route history';q('#tag').textContent='Memory Map';q('#why').textContent='Your existing Memories, organized by coarse places — not another calendar.'}if(x==='public'){q('#heading').textContent='RealWorld Public';q('#name').textContent='Opt-in public discovery';q('#place').textContent='Coarse locations · safety filtered';q('#tag').textContent='Explore';q('#why').textContent='Public posts appear only from people who explicitly opt in.'}}
+function openFilters(){q('#filters').classList.add('show')}
+function closeFilters(){q('#filters').classList.remove('show')}
+function openPrivacy(){q('#privacy').classList.add('show')}
+function closePrivacy(){q('#privacy').classList.remove('show')}
+function openSafety(){openPrivacy()}
+function openComposer(){q('#composer').classList.add('show')}
+function closeComposer(){q('#composer').classList.remove('show')}
+function toggle(e){e.classList.toggle('on');e.textContent=e.classList.contains('on')?'On':'Off'}
+document.querySelectorAll('.options').forEach(g=>g.querySelectorAll('.option').forEach(b=>b.onclick=()=>{if(g.dataset.group==='safe')b.classList.toggle('on');else{g.querySelectorAll('.option').forEach(x=>x.classList.remove('on'));b.classList.add('on')}}));
+function applyFilters(){closeFilters();say('Filters applied — you control what appears')}
+function togglePrecision(){const p=q('#pillPrecision');if(p.textContent.includes('Approximate')){p.textContent='Precise location ▾';p.classList.remove('on');setShield('risk');say('Precise location shares your exact pin — use with care')}else{p.textContent='Approximate area ▾';p.classList.add('on');setShield('protected')}}
+function pauseSharing(){setShield('off');closePrivacy();say('Map sharing paused — BeReal posting is unaffected')}
+function setShield(state){const btn=q('#shieldBtn'),label=q('#shieldLabel'),icon=q('#shieldIcon'),line=q('#statusLine');btn.className='shield-btn '+state;if(state==='protected'){label.textContent='Protected';icon.textContent='🛡';line.textContent='🔒 Friends only · Approximate area'}if(state==='adjusted'){label.textContent='Adjusted';icon.textContent='🛡';line.textContent='🔓 Broader visibility enabled'}if(state==='risk'){label.textContent='Review';icon.textContent='⚠';line.textContent='⚠️ Post may reveal a precise location'}if(state==='off'){label.textContent='Paused';icon.textContent='⏸';line.textContent='⏸ Map sharing paused'}}
+// Simulate arriving inside a protected geofence when opening the composer from the home pin demo
+function simulateGeofence(){q('#geofenceAlert').classList.add('show')}
+</script></body></html>

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>User Journey Map — BeReal User</title>
+<style>
+:root{
+  --bg:#f4f5f7; --card:#ffffff; --ink:#1c1f26; --sub:#5c6270;
+  --header-band:#5865c4; --col-head:#a9d18e; --row-head:#e879c0;
+  --blue:#b8c2f2; --green:#c3e3ab; --yellow:#f7dd8a; --pink:#f3c9e3;
+  --grid-line:#e2e4ea;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#14161c; --card:#1d2028; --ink:#eef0f4; --sub:#a4a9b6;
+    --grid-line:#2c2f3a;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#14161c; --card:#1d2028; --ink:#eef0f4; --sub:#a4a9b6;
+  --grid-line:#2c2f3a;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;padding:16px 10px 30px}
+.wrap{max-width:1180px;margin:0 auto}
+.banner{background:var(--header-band);color:#fff;border-radius:12px;padding:14px 18px;margin-bottom:14px;box-shadow:0 6px 16px #5865c440}
+.banner h1{margin:0;font-size:clamp(16px,2.2vw,22px);font-weight:800;letter-spacing:.2px}
+.banner p{margin:4px 0 0;font-size:11px;opacity:.85;font-weight:500}
+.scroller{overflow-x:auto;border-radius:10px;box-shadow:0 4px 14px #00000014}
+table.journey{border-collapse:separate;border-spacing:3px;background:var(--bg);width:100%;min-width:980px}
+table.journey th, table.journey td{vertical-align:top;border-radius:7px}
+.corner{background:var(--blue);width:88px;min-width:88px}
+.col-head{background:var(--col-head);color:#173318;font-weight:800;font-size:9.5px;text-transform:uppercase;letter-spacing:.2px;padding:8px 7px;min-width:100px;line-height:1.25}
+.row-head{background:var(--row-head);color:#3a0f2b;font-weight:800;font-size:9.5px;text-transform:uppercase;letter-spacing:.2px;padding:8px 7px;width:88px;min-width:88px;writing-mode:horizontal-tb}
+.cell{padding:0}
+.note{background:var(--card);border-radius:7px;padding:7px 8px;font-size:9px;line-height:1.32;color:var(--ink);min-height:64px;border-left:4px solid transparent;box-shadow:0 1px 4px #00000010}
+.row-objectives .note{border-left-color:#6c7fe0;background:color-mix(in srgb, var(--blue) 38%, var(--card))}
+.row-need .note{border-left-color:#5fae4e;background:color-mix(in srgb, var(--green) 38%, var(--card))}
+.row-touchpoints .note{border-left-color:#3f9b8f;background:color-mix(in srgb, var(--green) 24%, var(--card))}
+.row-pain .note{border-left-color:#d6a520;background:color-mix(in srgb, var(--yellow) 42%, var(--card))}
+.row-opportunities .note{border-left-color:#c25fae;background:color-mix(in srgb, var(--pink) 42%, var(--card))}
+.note b{display:block;font-size:8px;text-transform:uppercase;letter-spacing:.3px;color:var(--sub);margin-bottom:2px;font-weight:800}
+.legend{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;font-size:10px;color:var(--sub)}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.dot{width:9px;height:9px;border-radius:2px;display:inline-block}
+@media (max-width:640px){
+  .banner{padding:20px 18px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="banner">
+    <h1>User Journey Map for BeReal User</h1>
+    <p>From discovery to daily return — objectives, needs, touchpoints, pain points & opportunities at each stage</p>
+  </div>
+
+  <div class="scroller">
+    <table class="journey">
+      <thead>
+        <tr>
+          <th class="corner"></th>
+          <th class="col-head">Discovery &amp; Research of Platform</th>
+          <th class="col-head">Downloading &amp; Onboarding</th>
+          <th class="col-head">First-Time Setup (Adding Friends)</th>
+          <th class="col-head">Daily Notification</th>
+          <th class="col-head">Capturing the Post</th>
+          <th class="col-head">Posting &amp; Sharing</th>
+          <th class="col-head">Viewing Friends</th>
+          <th class="col-head">Reacting / Replying</th>
+          <th class="col-head">Revisiting Memories</th>
+          <th class="col-head">Returning Tomorrow</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="row-objectives">
+          <td class="row-head">Objectives</td>
+          <td class="cell"><div class="note">Learn what BeReal is and whether it fits how they connect with friends</div></td>
+          <td class="cell"><div class="note">Get the app installed and account created with minimal friction</div></td>
+          <td class="cell"><div class="note">Build a friend list to make the app immediately useful</div></td>
+          <td class="cell"><div class="note">Be prompted at a good moment to capture something real</div></td>
+          <td class="cell"><div class="note">Take one authentic, unedited photo within the time window</div></td>
+          <td class="cell"><div class="note">Share the moment with friends without overthinking it</div></td>
+          <td class="cell"><div class="note">See what friends are doing right now</div></td>
+          <td class="cell"><div class="note">Respond authentically to a friend's moment</div></td>
+          <td class="cell"><div class="note">Reconnect with past authentic moments</div></td>
+          <td class="cell"><div class="note">Feel motivated to open and post again the next day</div></td>
+        </tr>
+        <tr class="row-need">
+          <td class="row-head">Need</td>
+          <td class="cell"><div class="note">Understand the app's core concept before committing</div></td>
+          <td class="cell"><div class="note">A fast, simple signup that doesn't ask for too much upfront</div></td>
+          <td class="cell"><div class="note">I should be able to add all my friends through every channel — contacts, social media, QR code, or shared links</div></td>
+          <td class="cell"><div class="note">A trigger that feels timely, not disruptive</div></td>
+          <td class="cell"><div class="note">Fast camera access with minimal steps between notification and capture</div></td>
+          <td class="cell"><div class="note">Confidence that the post is authentic and low-stakes</div></td>
+          <td class="cell"><div class="note">Easy access to friends' moments without needing to be asked</div></td>
+          <td class="cell"><div class="note">A low-effort way to show engagement</div></td>
+          <td class="cell"><div class="note">A reason to return to the app beyond the daily post</div></td>
+          <td class="cell"><div class="note">A reason to return that isn't just guilt or habit</div></td>
+        </tr>
+        <tr class="row-touchpoints">
+          <td class="row-head">Touchpoints</td>
+          <td class="cell"><div class="note">App Store listing, word-of-mouth from friends, social media mentions</div></td>
+          <td class="cell"><div class="note">App Store download, phone number verification, account creation screen</div></td>
+          <td class="cell"><div class="note">Contact sync prompt, friend search, friend requests</div></td>
+          <td class="cell"><div class="note">Push notification, lock screen alert</div></td>
+          <td class="cell"><div class="note">Dual camera capture screen, front/back camera</div></td>
+          <td class="cell"><div class="note">Post confirmation screen, caption/tag options</div></td>
+          <td class="cell"><div class="note">Friends feed, unlocked after posting</div></td>
+          <td class="cell"><div class="note">RealMoji reactions, comments</div></td>
+          <td class="cell"><div class="note">Memories tab, on-this-day surfacing</div></td>
+          <td class="cell"><div class="note">Next day's notification, streak status, friend activity</div></td>
+        </tr>
+        <tr class="row-pain">
+          <td class="row-head">Pain Points</td>
+          <td class="cell"><div class="note">Confusing positioning vs. Instagram/Snapchat; unclear what makes it different</div></td>
+          <td class="cell"><div class="note">Asked for full contact list access with no selective/limited option — raises privacy concerns before the user has even seen the app's value</div></td>
+          <td class="cell"><div class="note" style="opacity:.55;font-style:italic">None — able to add friends smoothly across channels</div></td>
+          <td class="cell"><div class="note">Arrives at an inconvenient time (meeting, driving); users feel pressured or forget by the time they're free</div></td>
+          <td class="cell"><div class="note">Self-consciousness about appearance in an unposed, unedited photo — even with a flexible posting window, the pressure of "no filter, no retake" can make people hesitate to capture or share</div></td>
+          <td class="cell"><div class="note">Post feels like a dead end once shared — nothing else to do</div></td>
+          <td class="cell"><div class="note">Feed feels sparse if few friends posted; posting first to unlock can feel transactional</div></td>
+          <td class="cell"><div class="note">Conversations often end after one reaction/comment; feels shallow</div></td>
+          <td class="cell"><div class="note">Memories are easy to forget exist; buried in navigation</div></td>
+          <td class="cell"><div class="note">Streak pressure or guilt from missed days causes drop-off; no clear payoff for consistency</div></td>
+        </tr>
+        <tr class="row-opportunities">
+          <td class="row-head">Opportunities</td>
+          <td class="cell"><div class="note">Clearer store listing copy highlighting the "one authentic moment" differentiation — e.g. tagline: "Capture your unfiltered memory."</div></td>
+          <td class="cell"><div class="note">Prompt users to choose full or limited contact access at onboarding, reducing privacy-driven churn before signup completes</div></td>
+          <td class="cell"><div class="note" style="opacity:.55;font-style:italic">None</div></td>
+          <td class="cell"><div class="note">Learn each user's typical active hours from past posting times, then send the daily notification within a randomized window inside that range — reducing missed/bad-timing notifications while keeping the moment spontaneous</div></td>
+          <td class="cell"><div class="note">If a friend posts around the same time, offer to link the two posts into one shared moment — shifts the focus from "how do I look" to "we shared this," easing self-consciousness</div></td>
+          <td class="cell"><div class="note">Post-Then-Explore — give the moment right after posting a small purpose</div></td>
+          <td class="cell"><div class="note">Quiet Digest / Passive Presence Widget — surface friend activity without requiring a post first</div></td>
+          <td class="cell"><div class="note">Reply prompts / Daily Question to extend a reaction into a real conversation</div></td>
+          <td class="cell"><div class="note">Auto-surface "On This Day" / Memory Throwback instead of requiring users to seek it out</div></td>
+          <td class="cell"><div class="note">Non-punitive Friend Streaks / "You Were Missed" moment to re-engage without shame</div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="legend">
+    <span><i class="dot" style="background:var(--blue)"></i>Objectives</span>
+    <span><i class="dot" style="background:var(--green)"></i>Need</span>
+    <span><i class="dot" style="background:#8fd0c4"></i>Touchpoints</span>
+    <span><i class="dot" style="background:var(--yellow)"></i>Pain Points</span>
+    <span><i class="dot" style="background:var(--pink)"></i>Opportunities</span>
+  </div>
+</div>
+</body>
+</html>

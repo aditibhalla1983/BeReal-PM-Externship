@@ -1,0 +1,124 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Friend Check-In — Flow Walkthrough</title><style>
+:root{--ink:#14302d;--mute:#64807a;--line:#dce7e2;--green:#207557;--mint:#ddf4e9;--paper:#fbfcf9;--amber:#c8871f;--coral:#f17863}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:linear-gradient(135deg,#dfefe8,#dce8f8);font-family:Arial,Helvetica,sans-serif;color:var(--ink);padding:20px 12px 40px}
+.wrap{max-width:1080px;margin:0 auto}
+h1{font-size:20px;margin:0 0 4px}
+.sub{font-size:12.5px;color:var(--mute);margin:0 0 18px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:760px){.steps{grid-template-columns:1fr}}
+.stepcard{background:#fff;border-radius:16px;box-shadow:0 8px 22px #45635a1c;overflow:hidden}
+.stephead{background:var(--green);color:#fff;padding:10px 14px;font-size:12px;font-weight:bold;display:flex;justify-content:space-between;align-items:center}
+.stepbody{padding:14px}
+.phoneframe{background:#edf4ee;border-radius:14px;padding:14px;position:relative;min-height:300px}
+.striprow{background:#fff;border-radius:14px;padding:10px 8px;box-shadow:0 4px 12px #294d4522}
+.striplabel{font-size:10px;text-transform:uppercase;letter-spacing:.3px;color:var(--mute);font-weight:bold;padding:0 4px 8px}
+.avatars{display:flex;gap:10px;overflow-x:auto;padding:0 4px}
+.avslot{display:flex;flex-direction:column;align-items:center;gap:5px;flex:0 0 auto}
+.av{width:44px;height:44px;border-radius:50%;position:relative;border:3px solid var(--green)}
+.av.pending{border-color:#d7dfda;opacity:.55}
+.av.you{border-color:var(--coral)}
+.av1{background:#e0a25f}.av2{background:#7fa8c9}.av3{background:#b487c2}.av4{background:#7fbfa8}.av5{background:#d68d8d}
+.check{position:absolute;bottom:-3px;right:-3px;width:15px;height:15px;background:var(--green);border-radius:50%;color:#fff;font-size:9px;display:flex;align-items:center;justify-content:center;border:2px solid #fff}
+.avname{font-size:9.5px;color:var(--mute)}
+.pill{margin-top:10px;background:#f2f6f4;border-radius:10px;padding:8px 10px;font-size:11.5px;color:#36524b;text-align:center}
+.detail{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;margin-top:10px}
+.drow{display:flex;justify-content:space-between;align-items:center;padding:6px 0;font-size:12px;border-top:1px solid #eef3f0}
+.drow:first-child{border-top:0}
+.status-done{color:#146349;font-weight:bold;font-size:11px}
+.status-wait{color:#9aa8a2;font-size:11px}
+.nudgebtn{border:0;background:var(--mint);color:#146349;border-radius:10px;padding:5px 9px;font-size:10.5px;font-weight:bold}
+.notice{font-size:11.5px;color:var(--mute);line-height:1.5;padding-top:8px}
+.flowrow{display:flex;align-items:center;justify-content:center;margin:16px 0 4px}
+.arrow{text-align:center;font-size:22px;color:var(--mute)}
+.storagepanel{background:#f5f8f6;border:1px solid #dceae3;border-radius:12px;padding:12px;font-size:12px;line-height:1.55;color:#36524b}
+.storagepanel code{background:#e8f1ec;padding:1px 5px;border-radius:5px;font-size:11px}
+.storagepanel .row{display:flex;justify-content:space-between;border-top:1px solid #e2ece7;padding:7px 0;font-size:11.5px}
+.storagepanel .row:first-child{border-top:0}
+.storagepanel .row b{color:#1d443c}
+.footer-note{margin-top:18px;background:#fff;border-radius:14px;padding:14px 16px;font-size:12.5px;color:var(--mute);line-height:1.6;box-shadow:0 6px 16px #45635a14}
+.footer-note b{color:var(--ink)}
+</style></head><body><div class="wrap">
+<h1>Friend Check-In — How it appears, works, and is stored</h1>
+<p class="sub">Shows which close friends have posted today, at a glance</p>
+
+<div class="steps">
+
+<div class="stepcard">
+<div class="stephead"><span>1. It appears</span><span>Top of home screen</span></div>
+<div class="stepbody">
+<div class="phoneframe">
+<div class="striprow">
+<div class="striplabel">Close Friends Today</div>
+<div class="avatars">
+<div class="avslot"><div class="av av1"><span class="check">✓</span></div><span class="avname">Maya</span></div>
+<div class="avslot"><div class="av av2"><span class="check">✓</span></div><span class="avname">Priya</span></div>
+<div class="avslot"><div class="av av3 pending"></div><span class="avname">Jordan</span></div>
+<div class="avslot"><div class="av av4 pending"></div><span class="avname">Sam</span></div>
+<div class="avslot"><div class="av av5 you"><span class="check">✓</span></div><span class="avname">You</span></div>
+</div>
+</div>
+<div class="pill">2 of 4 close friends have posted today</div>
+</div>
+<p class="notice">A small strip at the top of the home screen — a ring around each avatar fills in once that friend posts. Only shows your designated <b>close friends</b> list, not everyone, so it stays a quick glance rather than a full feed.</p>
+</div>
+</div>
+
+<div class="stepcard">
+<div class="stephead"><span>2. You interact</span><span>Tap for detail</span></div>
+<div class="stepbody">
+<div class="phoneframe">
+<div class="detail">
+<div class="drow"><span>Maya</span><span class="status-done">Posted · 8m ago</span></div>
+<div class="drow"><span>Priya</span><span class="status-done">Posted · 1h ago</span></div>
+<div class="drow"><span>Jordan</span><span class="status-wait">Hasn't posted <button class="nudgebtn">Nudge</button></span></div>
+<div class="drow"><span>Sam</span><span class="status-wait">Hasn't posted <button class="nudgebtn">Nudge</button></span></div>
+</div>
+<p class="notice">Tapping the strip expands into a simple list. Tapping a "posted" friend jumps straight to their moment; tapping "Nudge" on someone who hasn't posted sends the existing Friend Nudge (capped at once a day, same mechanic already on this list).</p>
+</div>
+</div>
+</div>
+
+<div class="stepcard">
+<div class="stephead"><span>3. It updates</span><span>Live, passive</span></div>
+<div class="stepbody">
+<div class="phoneframe">
+<div class="striprow">
+<div class="striplabel">Close Friends Today</div>
+<div class="avatars">
+<div class="avslot"><div class="av av1"><span class="check">✓</span></div><span class="avname">Maya</span></div>
+<div class="avslot"><div class="av av2"><span class="check">✓</span></div><span class="avname">Priya</span></div>
+<div class="avslot"><div class="av av3"><span class="check">✓</span></div><span class="avname">Jordan</span></div>
+<div class="avslot"><div class="av av4 pending"></div><span class="avname">Sam</span></div>
+<div class="avslot"><div class="av av5 you"><span class="check">✓</span></div><span class="avname">You</span></div>
+</div>
+</div>
+<div class="pill">3 of 4 close friends have posted today</div>
+</div>
+<p class="notice">No refresh needed — the ring around Jordan's avatar fills in the moment they post, same as how a read receipt updates. Resets at midnight along with the daily posting cycle.</p>
+</div>
+</div>
+
+</div>
+
+<div class="flowrow"><div class="arrow">⬇</div></div>
+
+<div class="stepcard" style="max-width:100%">
+<div class="stephead"><span>How it's stored</span><span>Data model</span></div>
+<div class="stepbody">
+<div class="storagepanel">
+<p style="margin-top:0">This reuses data BeReal already has — it's a <b>read view over existing posting status</b>, not a new object.</p>
+<div class="row"><span>Source data</span><b>existing "has user X posted today" flag</b> <span style="color:#7c8b85">(already powers the current post-to-unlock mechanic)</span></div>
+<div class="row"><span>Friend list scope</span><b>your Close Friends list</b> <span style="color:#7c8b85">(existing friend-grouping feature, if present, or a new lightweight tag)</span></div>
+<div class="row"><span>Query</span><code>SELECT friend, posted_today FROM close_friends WHERE user = me</code></div>
+<div class="row"><span>Update trigger</span><b>real-time on friend post event</b> <span style="color:#7c8b85">(same event that already notifies followers)</span></div>
+<div class="row"><span>Persistence</span><b>none needed</b> <span style="color:#7c8b85">(recomputed each time, resets naturally at the next day's cycle)</span></div>
+<p style="margin-bottom:0">The only new piece is a <b>"Close Friends" grouping</b> if BeReal doesn't already have one — everything else (posting status, notifications, nudge) reuses systems that already exist. That's why it lands in the fast-to-build tier alongside Today's Circle, which works almost identically.</p>
+</div>
+</div>
+</div>
+
+<div class="footer-note">
+<b>Why this design choice matters:</b> scoping it to close friends only (not the full friend list) keeps it a quick glance instead of a scroll-worthy feed — and reusing the existing posting-status data means there's no new privacy surface: if a friend can already see whether you posted today, this just visualizes that same information at a glance.
+</div>
+
+</div></body></html>

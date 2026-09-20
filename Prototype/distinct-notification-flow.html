@@ -1,0 +1,141 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Distinct Notification — Prototype</title><style>
+:root{--ink:#14302d;--mute:#64807a;--line:#dce7e2;--green:#207557;--mint:#ddf4e9;--paper:#fbfcf9;--coral:#f17863}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:linear-gradient(135deg,#dfefe8,#dce8f8);font-family:Arial,Helvetica,sans-serif;color:var(--ink);padding:20px 12px 40px}
+.wrap{max-width:1080px;margin:0 auto}
+h1{font-size:20px;margin:0 0 4px}
+.sub{font-size:12.5px;color:var(--mute);margin:0 0 18px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:760px){.steps{grid-template-columns:1fr}}
+.stepcard{background:#fff;border-radius:16px;box-shadow:0 8px 22px #45635a1c;overflow:hidden}
+.stephead{background:var(--green);color:#fff;padding:10px 14px;font-size:12px;font-weight:bold;display:flex;justify-content:space-between;align-items:center}
+.stepbody{padding:14px}
+.phoneframe{background:#1c2b28;border-radius:20px;padding:14px 10px;min-height:320px;position:relative}
+.time{color:#fff;text-align:center;font-size:38px;font-weight:200;margin:6px 0 2px}
+.date{color:#c7d6d0;text-align:center;font-size:11px;margin-bottom:16px}
+.notif{border-radius:14px;padding:11px 12px;display:flex;gap:9px;align-items:flex-start;margin-bottom:8px}
+.notif.plain{background:#33413ecc;backdrop-filter:blur(6px)}
+.notif.distinct{background:linear-gradient(135deg,#2a7a5c,#1c4a3a);border:1.5px solid #6fd9ae55;box-shadow:0 0 0 3px #6fd9ae22}
+.nicon{width:26px;height:26px;border-radius:7px;background:#fff;flex:0 0 26px;display:flex;align-items:center;justify-content:center;font-size:13px}
+.ntext b{color:#fff;font-size:12px;display:block}
+.ntext span{color:#c7d6d0;font-size:11px}
+.tagline{font-family:Arial,sans-serif;font-size:10px;text-align:center;margin-top:10px}
+.tagline.plain{color:#8a9994}
+.tagline.distinct{color:#6fd9ae}
+.notice{font-size:11.5px;color:var(--mute);line-height:1.5;padding-top:10px}
+.wavebar{display:flex;gap:2px;align-items:flex-end;height:16px;margin-top:6px}
+.wavebar div{width:3px;background:#6fd9ae;border-radius:2px}
+.lockicon{position:absolute;top:10px;right:12px;font-size:11px;background:#0003;color:#fff;border-radius:8px;padding:2px 7px}
+/* real BeReal-style dark settings screen */
+.beframe{background:#000;border-radius:20px;padding:0;overflow:hidden;font-family:-apple-system,Helvetica,Arial,sans-serif;box-shadow:0 4px 14px #00000033}
+.behead{display:flex;align-items:center;padding:14px 14px 4px;position:relative}
+.beback{color:#fff;font-size:20px;font-weight:bold}
+.betitle{position:absolute;left:0;right:0;text-align:center;color:#fff;font-size:16px;font-weight:bold}
+.beintro{color:#fff;font-size:14px;font-weight:bold;line-height:1.4;padding:14px 16px 6px}
+.besection{color:#8e8e93;font-size:11px;font-weight:bold;letter-spacing:.4px;padding:14px 16px 6px}
+.berow{display:flex;align-items:center;gap:12px;padding:11px 16px;background:#1c1c1e}
+.berow + .berow{border-top:1px solid #2c2c2e}
+.berow.new{background:#16281f;border:1.5px solid #2fa866;border-radius:10px;margin:0 8px;padding:11px 10px}
+.beicon{width:26px;height:26px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:15px;flex:0 0 26px}
+.betext{flex:1;min-width:0}
+.betext b{color:#fff;font-size:14.5px;display:block;font-weight:600}
+.betext span{color:#8e8e93;font-size:12px;display:block;margin-top:1px;line-height:1.3}
+.beswitch{width:44px;height:26px;border-radius:14px;background:#2fa866;position:relative;flex:0 0 44px}
+.beswitch:after{content:'';position:absolute;top:2px;left:20px;width:22px;height:22px;border-radius:50%;background:#fff}
+.besavebar{background:#3a3a3c;color:#fff;text-align:center;font-size:15px;font-weight:600;padding:13px;margin:10px 8px 8px;border-radius:12px}
+.newbadge{background:#2fa866;color:#fff;font-size:8.5px;font-weight:bold;border-radius:6px;padding:2px 6px;margin-left:6px;vertical-align:middle}
+.flowrow{display:flex;align-items:center;justify-content:center;margin:16px 0 4px}
+.arrow{text-align:center;font-size:22px;color:var(--mute)}
+.footer-note{margin-top:18px;background:#fff;border-radius:14px;padding:14px 16px;font-size:12.5px;color:var(--mute);line-height:1.6;box-shadow:0 6px 16px #45635a14}
+.footer-note b{color:var(--ink)}
+</style></head><body><div class="wrap">
+<h1>Distinct Notification Treatment — prototype</h1>
+<p class="sub">Making the daily BeReal alert stand out from every other app notification</p>
+
+<div class="steps">
+
+<div class="stepcard">
+<div class="stephead"><span>1. Today: it blends in</span><span>Lock screen</span></div>
+<div class="stepbody">
+<div class="phoneframe">
+<div class="time">9:41</div>
+<div class="date">Friday, September 19</div>
+<div class="notif plain">
+<div class="nicon">📷</div>
+<div class="ntext"><b>BeReal</b><span>Time to BeReal.</span></div>
+</div>
+<div class="notif plain"><div class="nicon">💬</div><div class="ntext"><b>Messages</b><span>Jordan: sounds good</span></div></div>
+<div class="notif plain"><div class="nicon">📧</div><div class="ntext"><b>Mail</b><span>3 new emails</span></div></div>
+<div class="notif plain"><div class="nicon">📰</div><div class="ntext"><b>News</b><span>Top story today</span></div></div>
+<p class="tagline plain">Same size, same style as everything else — easy to scroll past without noticing</p>
+</div>
+<p class="notice">Right now, BeReal's notification looks visually identical to every other app's alert — plain icon, plain text, same gray card. Nothing tells your eye to stop scrolling.</p>
+</div>
+</div>
+
+<div class="stepcard">
+<div class="stephead"><span>2. Proposed: it stands out</span><span>Lock screen</span></div>
+<div class="stepbody">
+<div class="phoneframe">
+<div class="time">9:41</div>
+<div class="date">Friday, September 19</div>
+<div class="notif distinct">
+<div class="nicon">📷</div>
+<div class="ntext"><b>BeReal ✨</b><span>2 min left to capture today's moment</span>
+<div class="wavebar"><div style="height:6px"></div><div style="height:12px"></div><div style="height:8px"></div><div style="height:15px"></div><div style="height:5px"></div><div style="height:10px"></div></div>
+</div>
+<div class="lockicon">🔊</div>
+</div>
+<div class="notif plain"><div class="nicon">💬</div><div class="ntext"><b>Messages</b><span>Jordan: sounds good</span></div></div>
+<div class="notif plain"><div class="nicon">📧</div><div class="ntext"><b>Mail</b><span>3 new emails</span></div></div>
+<p class="tagline distinct">Green glow border + unique sound icon + live countdown text — reads instantly as "the BeReal one"</p>
+</div>
+<p class="notice">Same information, different treatment: a colored border/glow, a countdown instead of static text, and a distinct sound (shown here as a waveform) — so it's recognizable before you even read it.</p>
+</div>
+</div>
+
+<div class="stepcard">
+<div class="stephead"><span>3. Where the toggle lives</span><span>Real Notifications screen</span></div>
+<div class="stepbody">
+<div class="beframe">
+<div class="behead"><span class="beback">‹</span><span class="betitle">Notifications</span></div>
+<div class="beintro">On BeReal, you're in control of your push notifications. You can choose the type of notifications you want to receive.</div>
+
+<div class="besection">POSTS</div>
+<div class="berow">
+<div class="beicon">🖼</div>
+<div class="betext"><b>Friends' Posts</b><span>realprocess, cemipowell, sanikavivek &amp; 4 others have all posted a BeReal.</span></div>
+<div class="beswitch"></div>
+</div>
+<div class="berow new">
+<div class="beicon">🔔</div>
+<div class="betext"><b>Daily BeReal Alert<span class="newbadge">NEW</span></b><span>Distinct sound + glow so it's not just another alert. Includes a live countdown.</span></div>
+<div class="beswitch"></div>
+</div>
+
+<div class="besection">INTERACTIONS</div>
+<div class="berow">
+<div class="beicon">👥</div>
+<div class="betext"><b>Friend requests</b><span>realprocess just sent you a friend request</span></div>
+<div class="beswitch"></div>
+</div>
+<div class="berow">
+<div class="beicon">💬</div>
+<div class="betext"><b>Comments</b><span>sanikavivek commented on your BeReal.</span></div>
+<div class="beswitch"></div>
+</div>
+
+<div class="besavebar">Save</div>
+</div>
+<p class="notice">Slotted into BeReal's existing Notifications screen as one new row under <b>Posts</b> — right next to "Friends' Posts," since it's the same category of alert. No new settings section, no separate menu. During the A/B test this stays fixed (not user-editable); it only becomes a real, user-facing toggle after rollout, as an opt-out safety valve.</p>
+</div>
+</div>
+
+</div>
+
+<div class="flowrow"><div class="arrow">⬇</div></div>
+
+<div class="footer-note">
+<b>Why this design works:</b> the fix isn't about saying something new — it's about signaling <i>this one is different</i> before the user even reads it. A distinct color/glow, a live countdown instead of static copy, and a unique sound work together so the notification is recognized in the half-second glance most people give a lock screen, rather than relying on them to actually read and compare every alert.
+</div>
+
+</div></body></html>

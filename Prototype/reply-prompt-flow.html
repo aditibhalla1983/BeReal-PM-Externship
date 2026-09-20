@@ -1,0 +1,117 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Reply Prompt — Flow Walkthrough</title><style>
+:root{--ink:#14302d;--mute:#64807a;--line:#dce7e2;--green:#207557;--mint:#ddf4e9;--paper:#fbfcf9;--amber:#c8871f;--coral:#f17863}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:linear-gradient(135deg,#dfefe8,#dce8f8);font-family:Arial,Helvetica,sans-serif;color:var(--ink);padding:20px 12px 40px}
+.wrap{max-width:1080px;margin:0 auto}
+h1{font-size:20px;margin:0 0 4px}
+.sub{font-size:12.5px;color:var(--mute);margin:0 0 18px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:760px){.steps{grid-template-columns:1fr}}
+.stepcard{background:#fff;border-radius:16px;box-shadow:0 8px 22px #45635a1c;overflow:hidden}
+.stephead{background:var(--green);color:#fff;padding:10px 14px;font-size:12px;font-weight:bold;display:flex;justify-content:space-between;align-items:center}
+.stepbody{padding:14px}
+.phoneframe{background:#edf4ee;border-radius:14px;padding:14px;position:relative;min-height:280px}
+.banner{background:#fff;border-radius:12px;padding:10px 12px;box-shadow:0 4px 12px #294d4522;display:flex;gap:10px;align-items:flex-start}
+.avatar{width:30px;height:30px;border-radius:50%;background:var(--coral);flex:0 0 30px}
+.banner b{font-size:12.5px;display:block}
+.banner p{font-size:11.5px;color:var(--mute);margin:3px 0 0}
+.dismiss{font-size:10px;color:var(--mute);text-align:right;margin-top:6px}
+.thread{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px;margin-top:10px}
+.msg{display:flex;gap:8px;margin-bottom:8px}
+.msg .bubble{background:#f2f6f4;border-radius:10px;padding:7px 10px;font-size:12px;max-width:80%}
+.msg.mine .bubble{background:var(--mint);margin-left:auto}
+.msg.mine{flex-direction:row-reverse}
+.replybox{display:flex;gap:6px;margin-top:8px}
+.replybox input{flex:1;border:1.5px solid var(--green);border-radius:20px;padding:8px 12px;font-size:12px}
+.replybox button{border:0;background:var(--green);color:#fff;border-radius:20px;padding:8px 14px;font-size:12px;font-weight:bold}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.chip{background:#eef6f1;border:1px solid #cfe6da;color:#1c5643;border-radius:14px;padding:6px 10px;font-size:11px}
+.notice{font-size:11.5px;color:var(--mute);line-height:1.5;padding-top:8px}
+.flowrow{display:flex;align-items:center;justify-content:center;margin:16px 0 4px}
+.arrow{text-align:center;font-size:22px;color:var(--mute)}
+.storagepanel{background:#f5f8f6;border:1px solid #dceae3;border-radius:12px;padding:12px;font-size:12px;line-height:1.55;color:#36524b}
+.storagepanel code{background:#e8f1ec;padding:1px 5px;border-radius:5px;font-size:11px}
+.storagepanel .row{display:flex;justify-content:space-between;border-top:1px solid #e2ece7;padding:7px 0;font-size:11.5px}
+.storagepanel .row:first-child{border-top:0}
+.storagepanel .row b{color:#1d443c}
+.footer-note{margin-top:18px;background:#fff;border-radius:14px;padding:14px 16px;font-size:12.5px;color:var(--mute);line-height:1.6;box-shadow:0 6px 16px #45635a14}
+.footer-note b{color:var(--ink)}
+</style></head><body><div class="wrap">
+<h1>Reply Prompt — How it appears, gets used, and gets stored</h1>
+<p class="sub">A step-by-step walkthrough of the "unanswered comment" nudge</p>
+
+<div class="steps">
+
+<div class="stepcard">
+<div class="stephead"><span>1. It appears</span><span>On app open</span></div>
+<div class="stepbody">
+<div class="phoneframe">
+<div class="banner">
+<div class="avatar"></div>
+<div>
+<b>Jordan commented on your BeReal</b>
+<p>"haha no way, where is this??" · 6h ago, no reply yet</p>
+</div>
+</div>
+<div class="dismiss">Tap to reply · swipe to dismiss</div>
+</div>
+<p class="notice">Surfaces quietly when you open the app — no push notification spam. Only triggers for comments on <b>your own posts</b> that you haven't replied to after a few hours, and it clears itself once you view the thread.</p>
+</div>
+</div>
+
+<div class="stepcard">
+<div class="stephead"><span>2. You reply</span><span>Inline thread</span></div>
+<div class="stepbody">
+<div class="phoneframe">
+<div class="thread">
+<div class="msg"><div class="bubble">haha no way, where is this??</div></div>
+<div class="msg mine"><div class="bubble">rooftop near my office, wild view right</div></div>
+</div>
+<div class="replybox"><input placeholder="Reply…" disabled></div>
+<div class="chips">
+<div class="chip">😂 React</div>
+<div class="chip">📍 Where is this?</div>
+<div class="chip">Reply with text</div>
+</div>
+</div>
+<p class="notice">Tapping the banner opens the comment thread directly — you can type a reply or use a one-tap quick reply/reaction if you're short on time.</p>
+</div>
+</div>
+
+<div class="stepcard">
+<div class="stephead"><span>3. Friend sees it</span><span>Notified</span></div>
+<div class="stepbody">
+<div class="phoneframe">
+<div class="thread">
+<div class="msg"><div class="bubble">haha no way, where is this??</div></div>
+<div class="msg mine"><div class="bubble">rooftop near my office, wild view right</div></div>
+</div>
+<div class="notice" style="padding-top:4px">Jordan gets a normal reply notification — same as any comment reply today, nothing new on their end.</div>
+</div>
+<p class="notice">The feature only changes <b>your</b> side of the experience (the reminder). The person who commented sees a standard reply, so there's no new surface for them to learn.</p>
+</div>
+</div>
+
+</div>
+
+<div class="flowrow"><div class="arrow">⬇</div></div>
+
+<div class="stepcard" style="max-width:100%">
+<div class="stephead"><span>How it's stored</span><span>Data model</span></div>
+<div class="stepbody">
+<div class="storagepanel">
+<p style="margin-top:0">This feature needs <b>no new stored data at all</b> — it's a scheduled query over comments that already exist, surfaced as a transient in-app banner.</p>
+<div class="row"><span>Trigger check</span><b>on app open</b> <span style="color:#7c8b85">(client-side query, not a push job)</span></div>
+<div class="row"><span>Query logic</span><code>comments WHERE post.owner = me AND replied = false AND age > 3h</code></div>
+<div class="row"><span>Comment / reply</span><b>existing comment thread fields, unchanged</b></div>
+<div class="row"><span>Banner state</span><b>not persisted</b> <span style="color:#7c8b85">(re-computed each open, dismiss just hides it for that session)</span></div>
+<div class="row"><span>Cap</span><b>show at most 1–2 reminders at a time</b> <span style="color:#7c8b85">(avoid turning into a notification feed)</span></div>
+<p style="margin-bottom:0">Because it's a <b>read-only query over data that already exists</b> (comments, reply status, timestamps), there's nothing new to build on the backend — just the query and the banner UI. This is the lowest-effort idea on the list.</p>
+</div>
+</div>
+</div>
+
+<div class="footer-note">
+<b>Why this design choice matters:</b> the reminder is scoped tightly — only your own unanswered comments, capped at 1–2 at a time, cleared automatically once viewed. That keeps it a gentle nudge rather than turning into another notification feed to manage, which would work against BeReal's low-pressure positioning.
+</div>
+
+</div></body></html>
