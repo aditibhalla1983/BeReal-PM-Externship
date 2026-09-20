@@ -13,7 +13,7 @@ This project presents an end-to-end product management case study conducted duri
 
 ### 1. End-to-End User Journey Mapping
 Mapped out the entire lifecycle of a BeReal user—from the spontaneous daily push notification to the final feed interaction. This helped identify friction points where users drop off if they fail to follow the daily routine.
-* 📄 **Artifact:** [Link to Miro/Figma Journey Map]([./your-uploaded-file-name.pdf](https://claude.ai/artifact/UUrjHUVnBy32bZTkoeyok5))
+* 📄 **Artifact:** [Link to Miro/Figma Journey Map](https://claude.ai/artifact/UUrjHUVnBy32bZTkoeyok5)
 
 ### 2. Competitive Benchmarking
 Conducted a deep-dive competitive analysis against alternative social apps to understand daily routine drivers, streak mechanics, and summarized feed highlights.
