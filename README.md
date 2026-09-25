@@ -1,9 +1,9 @@
 # BeReal Product Innovation Case Study: Feature Engagement Drive
 
 ## 📌 Project Overview
-This project presents an end-to-end product management case study conducted during an intensive 8-week program. The core objective was to analyze **BeReal's** unique product experience, run competitive benchmarks, and design a scalable, low-effort/high-impact feature targeted at increasing Monthly Active Users (MAUs).
+This project presents an end-to-end product management case study conducted during an intensive 8-week program with BeReal. The core objective was to analyze **BeReal's** unique product experience, run competitive benchmarks, and design a scalable, low-effort/high-impact feature targeted at increasing Monthly Active Users (MAUs).
 
-* **Role:** Product Manager Intern
+* **Role:** Product Manager Extern
 * **Timeline:** 8 Weeks (September 2026 - Present)
 * **Program Manager:** Christie Andersen
 
