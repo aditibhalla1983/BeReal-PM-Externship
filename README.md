@@ -22,7 +22,7 @@ Conducted a deep-dive competitive analysis against alternative social apps to un
 ### 3. Feature Design & Strategy (PRD-Lite)
 Designed a feature focused on maintaining core BeReal values with minimal development complexity. Formulated user stories using strict **INVEST** criteria.
 * 📑 **Artifact:** [Priortized Features using RICE Framework](https://app.notion.com/p/RICE-Prioritization-3df2471950ad80d4a684ec397fb545c6?source=copy_link)
-* 📑 **Artifact:** [PRD-Lite ](https://app.notion.com/p/PRD-lite-Distinct-Notification-Treatment-3e02471950ad81f39ecdf92d7e5b84c9?source=copy_link))
+* 📑 **Artifact:** [PRD-Lite ](https://app.notion.com/p/PRD-lite-Distinct-Notification-Treatment-3e02471950ad81f39ecdf92d7e5b84c9?source=copy_link)
 
 ---
 
