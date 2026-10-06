@@ -32,8 +32,8 @@ Our journey began by examining why users love real-time, authentic social networ
 - **The Problem:** When the daily app notification triggers, users hit an immediate "Blank Page" barrier. They face creative blocks on what to capture, and if they do post, they are frequently met with a quiet, inactive friends feed.
 - **The Real Friction:** By mapping out user touchpoints, we discovered a fatal top-of-funnel drop-off. Users aren't ignoring our features because they dislike them; they are missing them entirely because our app notifications blend into a crowded sea of daily mobile device alert spam.
 
-> 🛠️ **Artifact Box:** See our full User Journey Map Mapping Chart to explore our core touchpoint friction logs.
-> 
+> 🛠️ **Artifact Box:** 
+> [User Journey Map] (https://docs.google.com/spreadsheets/d/11s-oAOVotrawzh0GgI9b0GhYOxMDM5WT2EV2TSt9AOY/edit?usp=sharing)
 
 ---
 
