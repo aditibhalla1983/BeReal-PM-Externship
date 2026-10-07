@@ -10,15 +10,15 @@ I took a product opportunity from **user research → prioritization → prototy
 
 ### 💡 The Opportunity
 
-BeReal's daily notification is the trigger for its core experience.  
+BeReal's daily notification triggers its core experience.  
 I identified **notification recognition** as a high-leverage opportunity and prioritized it using RICE.
 
 **Selected feature:** 🔔 Distinctive Notification Sound  
-**RICE Score:** 10.00
+**RICE Score:** 9.00
 
 ### 🎨 The Solution
 
-A recognizable BeReal notification sound designed to help users notice the daily alert without adding pressure to the experience.
+A recognizable BeReal notification sound designed to help users notice the daily alert without adding pressure.
 
 **Primary metric:** Notification → Post Conversion Rate
 
@@ -40,7 +40,7 @@ Testing supported the notification concept and led to a **Preview Sound** refine
 | RICE Prioritization | [View](https://pear-visage-882.notion.site/RICE-Prioritization-Framework-3e62471950ad80c39bbcda2fea104317?source=copy_link) |
 | PRD | [View](https://app.notion.com/p/3e02471950ad81f39ecdf92d7e5b84c9) |
 | Prototype | [View](https://youtube.com/shorts/TWKFNh_GpMA?feature=share) |
-| Focus Group / Testing | *Add link* |
+| Focus Group / Testing | [View](https://pear-visage-882.notion.site/Test-Summary-Report-BeReal-Notification-Sound-3e72471950ad81aeaa83e240539a792f?source=copy_link) |
 | CEO Pitch | [View](https://youtu.be/eoDebsp4i-g) |
 
 ### 🎯 PM Takeaway
