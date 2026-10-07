@@ -40,7 +40,7 @@ Testing supported the notification concept and led to a **Preview Sound** refine
 | PRD | [View](https://app.notion.com/p/3e02471950ad81f39ecdf92d7e5b84c9) |
 | Prototype | [View](https://youtube.com/shorts/TWKFNh_GpMA?feature=share) |
 | Focus Group / Testing | *Add link* |
-| CEO Pitch | *Add link* |
+| CEO Pitch | [View](https://youtu.be/eoDebsp4i-g) |
 
 ### 🎯 PM Takeaway
 
