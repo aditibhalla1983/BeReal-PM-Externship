@@ -38,7 +38,7 @@ Testing supported the notification concept and led to a **Preview Sound** refine
 | User Journey Map | [View](https://docs.google.com/spreadsheets/d/11s-oAOVotrawzh0GgI9b0GhYOxMDM5WT2EV2TSt9AOY/edit?usp=sharing) |
 | RICE Prioritization | [View](https://pear-visage-882.notion.site/RICE-Prioritization-Framework-3e62471950ad80c39bbcda2fea104317?source=copy_link) |
 | PRD | [View](https://app.notion.com/p/3e02471950ad81f39ecdf92d7e5b84c9) |
-| Prototype | [Open Figma](https://www.figma.com/make/S9aTAF9pW0NfqzjhtUOO2T/Be-Real-Prototype?fullscreen=1&t=UJ06tgsc1e5TWu63-1&code-node-id=0-6) |
+| Prototype | [View]((https://youtube.com/shorts/TWKFNh_GpMA?feature=share)) |
 | Focus Group / Testing | *Add link* |
 | CEO Pitch | *Add link* |
 
