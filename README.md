@@ -40,6 +40,7 @@ Testing supported the notification concept and led to a **Preview Sound** refine
 | RICE Prioritization | [View](https://pear-visage-882.notion.site/RICE-Prioritization-Framework-3e62471950ad80c39bbcda2fea104317?source=copy_link) |
 | PRD | [View](https://app.notion.com/p/3e02471950ad81f39ecdf92d7e5b84c9) |
 | Prototype | [View](https://youtube.com/shorts/TWKFNh_GpMA?feature=share) |
+<a href ="prototype/CreateyourOwnhighlight.html"> view
 | Focus Group / Testing | [View](https://pear-visage-882.notion.site/Test-Summary-Report-BeReal-Notification-Sound-3e72471950ad81aeaa83e240539a792f?source=copy_link) |
 | CEO Pitch | [View](https://youtu.be/eoDebsp4i-g) |
 
