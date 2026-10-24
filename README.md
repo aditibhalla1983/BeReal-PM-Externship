@@ -1,35 +1,65 @@
 # BeReal — Product Management Externship
+**Product:** BeReal | **Focus:** MAU Growth & Long-Term Retention | **Role:** Product Management Extern
 
-**Product:** BeReal · **Focus:** MAU Growth · **Role:** Product Management
+I drove the end-to-end product lifecycle for three high-leverage growth opportunities: moving from initial user research and competitive benchmarking to prioritization, prototyping, focus group validation, and final executive pitches.
 
-I took a product opportunity from **user research → prioritization → prototype → validation → CEO pitch.**
+---
 
-### 🔎 Process
+## 🔎 The Product Workflow
+User Journey Mapping ➔ Competitive Analysis ➔ RICE Prioritization ➔ PRD Development ➔ Interactive Prototyping ➔ Usability Focus Groups ➔ Agile Iteration & Pivoting ➔ CEO Pitch
 
-**User Journey → Competitive Analysis → RICE → PRD → Prototype → Usability Testing → Iteration → CEO Pitch**
+---
 
-### 💡 The Opportunity
+## 💡 Framework & Prioritized Opportunities
 
-BeReal's daily notification triggers its core experience.  
-I identified **notification recognition** as a high-leverage opportunity and prioritized it using RICE.
+To drive Monthly Active Users (MAU) and repeat engagement, I evaluated multiple feature concepts using a rigorous **RICE framework** (Reach, Impact, Confidence, Effort) to determine where to focus development.
 
-**Selected feature:** 🔔 Distinctive Notification Sound  
-**RICE Score:** 9.00
+| Opportunity | Core Focus | RICE Score | Strategic Decision |
+| :--- | :--- | :---: | :--- |
+| **🔔 Distinctive Notification Treatment** | Acquisition / Daily Triggers | **15.3** | **Selected for MVP 1** (High Reach & Impact) |
+| **📅 Memory Recap & Rediscovery** | Retention / Daily Habit | High | **Selected for MVP 2** (Algorithm-driven engagement) |
+| **✨ Create Your Highlights** | Engagement / Viral Loops | High | **Selected for MVP 2** (User-driven curation) |
 
-### 🎨 The Solution
+---
 
-A recognizable BeReal notification sound designed to help users notice the daily alert without adding pressure.
+## 🚀 Deep Dive: Executed Features
 
-**Primary metric:** Notification → Post Conversion Rate
+### 1. Distinctive Notification Treatment (MVP 1)
+* **The Problem:** BeReal’s daily notification triggers its entire core experience, but users frequently miss the generic system alert.
+* **The Solution:** A recognizable, unique daily audio chime and distinct visual treatment designed to catch user attention instantly without increasing anxiety. 
+* **Primary Metric:** Notification ➔ Post Conversion Rate.
+* **Validation (Focus Group N=7):** Achieved an **85% adoption intent**. *“The new audio chime gets me to look at my screen immediately…”* Testing led to adding a "Preview Sound" feature in the user settings.
 
-### 🧪 Validation
+### 2. Personalized Memory Recap (MVP 2)
+* **The Problem:** If users break their daily routine, they lose immediate context. They need a quick, low-pressure way to catch up and remember their social history.
+* **The Solution:** A automated monthly recap summary. To maximize engagement, the UI displays memories chosen dynamically by a **backend personalization algorithm** rather than utilizing standard 1/3/5-year dropdown selection options.
+* **Primary Metric:** Repeat Usage Rate / Multi-Day Retention.
 
-**Focus group:** N=7  
-**Adoption intent:** 85%
+### 3. "Create Your Highlights" Feature (MVP 2)
+* **The Problem:** Users want a streamlined way to curate and showcase their favorite past BeReal moments on and off the platform.
+* **The Solution:** An intuitive "quick cut" dashboard feature enabling seamless highlight compilation, giving users complete control over their shared social memory narrative.
+* **Primary Metric:** Feature Adoption / External Social Shares.
 
-> “The new audio chime gets me to look at my screen immediately…”
+---
 
-Testing supported the notification concept and led to a **Preview Sound** refinement.
+## 📁 Project Artifacts & Deliverables
+
+| Deliverable Artifact | Status / Access |
+| :--- | :--- |
+| **User Journey Map & Discovery** | [View Artifact](#) |
+| **Competitive Benchmarking (Instagram, Snapchat, Yope)** | [View Artifact](#) |
+| **RICE Prioritization Framework Matrix** | [View Artifact](#) |
+| **PRD-Lite (Notification & Retention Features)** | [View Artifact](#) |
+| **Interactive UI Prototype (Lovable Architecture)** | [View Prototype File](#) |
+| **Focus Group Usability Testing & Analytics Report** | [View Artifact](#) |
+| **Executive / CEO Pitch Deck** | [View Presentation](#) |
+
+---
+
+## 🎯 PM Takeaways & Hand-on Learnings
+* **Embrace Shifting Priorities:** Managed an evolving product lifecycle where feature priorities and design specs shifted frequently based on rapid stakeholder loop feedback and ongoing feature discoveries.
+* **Data-Driven Guardrails:** Learned to anchor ambiguous growth concepts into concrete success metrics, ensuring user-centric design always aligns with top-line MAU business goals.
+
 
 ### 📁 Project Artifacts
 
